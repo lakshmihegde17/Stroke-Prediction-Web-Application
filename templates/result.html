@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stroke Prediction Result</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .result-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .btn-primary {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 0;
+    }
+
+    .list-group-item {
+      border: none;
+      background-color: transparent;
+    }
+
+    .section-heading {
+      margin-top: 1.5rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="result-card">
+    <h2 class="fw-bold mb-3">🧠 Stroke Prediction Result</h2>
+
+    <div class="alert alert-info">
+      <strong>Prediction:</strong> {{ result }}
+    </div>
+
+    {% if result == 'Likely' %}
+      <div class="alert alert-danger mt-3">
+        ⚠️ Based on your input, you may be at higher risk for stroke. Please consider the following lifestyle changes:
+      </div>
+
+      <div class="text-start">
+        <h5 class="section-heading">❤️ Healthy Living Tips:</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">🩺 Monitor and manage your blood pressure.</li>
+          <li class="list-group-item">🥗 Eat a balanced, low-salt, low-fat diet.</li>
+          <li class="list-group-item">🚭 Quit smoking and avoid excessive alcohol.</li>
+          <li class="list-group-item">🏃 Stay physically active (30 min/day recommended).</li>
+          <li class="list-group-item">⚖️ Maintain a healthy weight.</li>
+          <li class="list-group-item">🧘 Reduce stress through meditation or therapy.</li>
+        </ul>
+      </div>
+    {% else %}
+      <div class="alert alert-success mt-3">
+        ✅ You are currently at low risk! Great job — keep living a healthy life!
+      </div>
+
+      <div class="text-start">
+        <h5 class="section-heading">💪 Tips to Stay on Track:</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">🥦 Continue eating a nutrient-rich diet.</li>
+          <li class="list-group-item">🚶‍♀️ Walk, jog, or stay active regularly.</li>
+          <li class="list-group-item">💤 Get 7–8 hours of quality sleep daily.</li>
+          <li class="list-group-item">💧 Stay hydrated and avoid sugary drinks.</li>
+          <li class="list-group-item">🧠 Get regular health check-ups.</li>
+        </ul>
+      </div>
+    {% endif %}
+
+    <a href="/" class="btn btn-primary w-100 mt-4">← Back to Form</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
