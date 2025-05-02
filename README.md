@@ -30,8 +30,8 @@ A machine learning-powered web application built with **Flask** that predicts th
 ## 🧭 How to Run This Project on Your Machine
 
  Clone the Repository
-
-https://github.com/lakshmihegde17/stroke-prediction-app.git
+ 
+ https://github.com/lakshmihegde17/Stroke-Prediction-Web-Application.git)
 
 cd stroke-prediction-app
 
