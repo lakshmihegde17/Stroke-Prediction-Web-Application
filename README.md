@@ -30,17 +30,21 @@ A machine learning-powered web application built with **Flask** that predicts th
 ## 🧭 How to Run This Project on Your Machine
 
  Clone the Repository
+ 
+ https://github.com/lakshmihegde17/Stroke-Prediction-Web-Application.git)
 
-https://github.com/lakshmihegde17/stroke-prediction-app.git
 cd stroke-prediction-app
 
 #Create virtual environment
+
 python -m venv venv
 
 #Activate (Windows)
+
 venv\Scripts\activate
 
 #Activate (Linux/macOS)
+
 source venv/bin/activate
 
 pip install -r requirements.txt
