@@ -7,7 +7,6 @@ app = Flask(__name__)
 # Load the model
 stroke_model = joblib.load("model.joblib")
 
-
 # Helper function for prediction
 def predict_input(single_input):
     input_df = pd.DataFrame([single_input])
@@ -17,6 +16,11 @@ def predict_input(single_input):
     X = input_df[numeric_cols + encoded_cols]
     prediction = stroke_model['model'].predict(X)
     return prediction
+
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -57,11 +61,18 @@ def index():
 
         # Predict and redirect to result page
         prediction = predict_input(single_input)
-        result = "Likely" if prediction[0] == 1 else "Not Likely"
+
+        # Updated result message
+        if prediction[0] == 1:
+            result = "You might be at risk for a brain stroke. Please consult a healthcare professional."
+        else:
+            result = "You are in good health and not likely to have a brain stroke."
+
         return render_template("result.html", result=result)
 
     return render_template("index.html")
 
 
+# Only one instance of this block is needed
 if __name__ == "__main__":
     app.run(debug=True)
